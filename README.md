@@ -92,8 +92,23 @@ For the function names, I follow the exact same pattern, but I replace on with h
 For example: <MyComponent onClick={handleClick} />
 
 So on is describing what actual event this will be tied to. handle is describing what will be called when that event fires. 
+
+#### Extract the unique values for the given key of each item in the array
+ The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+ For example: 
  
-React | Vue naming convention:
+ const listOfUserGroups = [...new Set(users.map(it => it.group))];
+// listOfUserGroups is ['editor', 'admin'];
+ 
+#### Create an object that contains the frequency of the specified key 
+ const groupByAge = users.reduce((acc, it) => {
+  acc[it.age] = acc[it.age] + 1 || 1;
+  return acc;
+}, {});
+// groupByAge is {23: 1, 28: 2, 34: 1}
+ 
+ 
+#### React | Vue naming convention:
 1. Component’s names should be PascalCase ( Example: LoginScreen.js )
 2. All other helper files should be camelCase. ( Example: commonUtils.js )
 3. All the folder names should be camelCase. ( Example: components )
