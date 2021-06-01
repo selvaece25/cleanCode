@@ -31,6 +31,56 @@ _____________________________________
 5. Replace magic numbers with named constants.
 6. Avoid encodings. Don't append prefixes or type information.
 
+#### Naming Integers : One of the most used categories of integer variables is a count or number of something
+For example: numberOfFailures or failureCount
+
+ I always add a unit description at the end of the variable name. For example, instead of tooltipShowDelay, I use tooltipShowDelayInMillis or even better **tooltipShowDelayInMillisecs**
+ 
+#### Naming Floating-Point Numbers
+If the unit of a variable is not clear, I add a unit description at the end of the variable name, like widthInCentimeters, rainFallAmountInInchesPerHour, angleInDegrees, failurePercent, or failureRatio.
+
+#### Naming Booleans: Boolean variables can have only one of two values: true or false
+I name boolean variables using patterns: isSomething, hasSomething, doesSomething, didSomething, shouldDoSomething or willDoSomething.
+For example: isDisabled, hasErrors, allowsWhitespace, didUpdate, shouldUpdate, willUpdate
+
+#### Naming Arrays, Lists, and Sets: When naming arrays, lists, or sets, I always use a plural form of a noun, like customers, errors, or tasks.
+
+#### Naming Strings: 
+Strings are very common and many entities are intrinsically strings, like name, title, city, or country. Sometimes when I need to store numerical data in strings, I want to tell the code reader clearly that it is a question about a number in string format and I use a variable name like <someValue>String or <someValue>AsString.
+
+For example: **yearAsString**
+
+#### Naming Pairs and Tuples
+I name a pair using the pattern variable1AndVariable2
+
+For example: 
+const heightAndWidthInCentimeters: [number, number] = [100, 200]
+const heightWidthAndDepthInCentimeters: [number, number, number] = [100, 200, 40]
+const [heightInCentimeters,,depthInCentimeters] = heightWidthAndDepthInCentimeters
+
+#### Naming Objects :
+You can also freely decorate the object’s name with an adjective. For example: completedTask  
+If possible, I try to avoid using object variable names that can be confused with a variable name for a string or a number. For example, instead of naming objects value or name, I use valueObject or nameObject.
+
+For example: const { nameObject } = getPersonById(1234);
+  
+#### Naming Index on Loop:   
+I don’t use loop iterator variable names like i or k. Rather I use the variable name index or <something>Index. 
+For example: userIndex  
+  
+#### File Name:
+The file name must be all lower case. It may include dashes(-) or underscores(_) but no other punctuation allowed.
+File encoding type must be UTF-8.
+
+#### Package Name:
+Package names are all lowerCamelCase.
+example: com.nodeSimplified.exampleCode.
+
+#### Class Name:
+Class names, interface names, typedef, and record names are all UpperCamelCase.
+These names are always nouns or noun phrases.
+example: ImmutableList.
+  
 ## Functions rules
 1. Small.
 2. Do one thing.
@@ -39,6 +89,25 @@ _____________________________________
 5. Have no side effects.
 6. Don't use flag arguments. Split method into several independent methods that can be called from the client without the flag.
 
+##### Methods naming: verb + noun pair works just fine for most of the cases: calculateTotal, getAverage, setColor, saveContent
+  
+##### Event handler: on + event name  (optionally with event target object) 
+
+For example: onButtonClick, onClose, onAfterRender
+  
+Another common naming pattern I like is when iterating over items. When receiving the argument inside the function, use the singular version of the array name.
+  
+const **newFruits** = fruits.map(fruit => {
+    return doSomething(fruit);
+});
+  
+#### Transforming values
+Prefixing function names with **to**
+For example: 
+toDollars('euros', 20);
+toUppercase('a string');  
+  
+  
 ## Comments rules
 1. Always try to explain yourself in code.
 2. Don't be redundant.
