@@ -80,7 +80,25 @@ example: com.nodeSimplified.exampleCode.
 Class names, interface names, typedef, and record names are all UpperCamelCase.
 These names are always nouns or noun phrases.
 example: ImmutableList.
-  
+ 
+### Frontend Naming your functions: 
+
+##### FOR PROPS
+When defining the prop names, I usually prefix with on*, as in onClick. This matches the built-in event handler convention. And by matching it, we declare that these props will house similarly-used event handler functions.
+
+##### FOR FUNCTION NAMES
+For the function names, I follow the exact same pattern, but I replace on with handle*, as in handleClick. Together, it’d look like: 
+ 
+For example: <MyComponent onClick={handleClick} />
+
+So on is describing what actual event this will be tied to. handle is describing what will be called when that event fires. 
+ 
+React | Vue naming convention:
+1. Component’s names should be PascalCase ( Example: LoginScreen.js )
+2. All other helper files should be camelCase. ( Example: commonUtils.js )
+3. All the folder names should be camelCase. ( Example: components )
+4. CSS files should be named the same as the component PascalCase. Global CSS which applies to all components should be placed in global.css and should be named in camelCase Example: LoginScreen.css(for components), global.css(for global styles)
+ 
 ## Functions rules
 1. Small.
 2. Do one thing.
